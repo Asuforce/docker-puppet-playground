@@ -1,0 +1,18 @@
+version: '2'
+services:
+  web001:
+    build: .
+    command: /sbin/init
+    privileged: true
+    hostname: web001
+    container_name: web001
+    ports:
+      - '8080:80'
+  bastion:
+    build: .
+    command: /sbin/init
+    privileged: true
+    hostname: bastion
+    container_name: bastion
+    ports:
+      - '2222:22'
