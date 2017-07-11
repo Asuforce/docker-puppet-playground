@@ -9,3 +9,5 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 RUN gem install bundler --no-document
+
+ENV PATH /opt/puppetlabs/bin:$PATH
