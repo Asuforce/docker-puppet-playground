@@ -8,4 +8,4 @@ ADD . /etc/puppet
 
 WORKDIR /etc/puppet
 RUN bundle install
-RUN bundle exec librarian-puppet install
+RUN librarian-puppet install --path vendor/modules
