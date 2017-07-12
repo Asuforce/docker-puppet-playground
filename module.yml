@@ -1,0 +1,12 @@
+version: '3'
+services:
+  module:
+    build:
+      context: .
+      dockerfile: Dockerfile-module
+    command: /sbin/init
+    privileged: true
+    hostname: module
+    container_name: module
+    ports:
+      - '8080:80'
