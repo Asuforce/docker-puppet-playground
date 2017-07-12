@@ -3,5 +3,5 @@ MAINTAINER Shun Nishitsuji <shun.nishitsuji@pepabo.com>
 
 RUN apt-get update
 
-RUN mkdir /var/puppet
-ADD . /var/puppet
+RUN mkdir /etc/puppet
+ADD . /etc/puppet
