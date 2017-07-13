@@ -1,0 +1,11 @@
+FROM asuforce/puppetserver
+MAINTAINER Shun Nishitsuji <shun.nishitsuji@pepabo.com>
+
+WORKDIR /etc/puppetlabs/code/environments
+RUN cp -r production development
+ADD . development
+
+WORKDIR /etc/puppetlabs/code/environments/development
+RUN cd manifests && rm hello.pp nginx.pp
+RUN bundle install
+RUN librarian-puppet install

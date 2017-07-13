@@ -1,18 +1,22 @@
-version: '2'
+version: '3'
 services:
   web001:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-agent
     command: /sbin/init
     privileged: true
-    hostname: web001
+    hostname: web001.local
     container_name: web001
     ports:
       - '8080:80'
-  bastion:
-    build: .
+    links:
+      - pmaster:pmaster.local
+  pmaster:
+    build:
+      context: .
+      dockerfile: Dockerfile-master
     command: /sbin/init
     privileged: true
-    hostname: bastion
-    container_name: bastion
-    ports:
-      - '2222:22'
+    hostname: pmaster.local
+    container_name: pmaster
