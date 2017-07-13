@@ -21,3 +21,5 @@ Ubuntu16:04 with puppet-agent 5.0.0
 1. docker-compose up -d --build
 2. docker exec --privileged pmaster systemctl start puppetserver
 3. docker exec web001 puppet agent --test --server pmaster.local --environment development
+4. Access http://localhost:8080/
+5. You can see `Hello from Docker Container`
