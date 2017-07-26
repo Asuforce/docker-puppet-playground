@@ -1,5 +1,4 @@
 FROM asuforce/puppetserver
-MAINTAINER Shun Nishitsuji <shun.nishitsuji@pepabo.com>
 
 WORKDIR /etc/puppetlabs/code/environments
 RUN cp -r production development
