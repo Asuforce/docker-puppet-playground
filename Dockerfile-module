@@ -1,10 +1,11 @@
 FROM asuforce/puppet
 
-RUN apt-get update
+RUN apt-get update \
+  && apt-get install -yqq git
 
 RUN mkdir /etc/puppet
 ADD . /etc/puppet
 
 WORKDIR /etc/puppet
-RUN bundle install
-RUN librarian-puppet install --path vendor/modules
+RUN bundle install --path vendor/bundle
+RUN bundle exec librarian-puppet install --path vendor/modules
