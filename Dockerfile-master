@@ -1,10 +1,13 @@
 FROM asuforce/puppetserver
 
+RUN apt-get update \
+  && apt-get install -yqq git
+
 WORKDIR /etc/puppetlabs/code/environments
 RUN cp -r production development
 ADD . development
 
 WORKDIR /etc/puppetlabs/code/environments/development
 RUN cd manifests && rm hello.pp nginx.pp
-RUN bundle install
-RUN librarian-puppet install
+RUN bundle install --path vendor/bundle
+RUN bundle exec librarian-puppet install
