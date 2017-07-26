@@ -25,7 +25,7 @@ You can see `hello, puppet!`
 
 ```console
 $ docker-compose -f module.yml up -d --build
-$ docker exec -it module puppet apply /etc/puppet/manifests/nginx.pp --modulepath vendor/modules
+$ docker-compose exec module puppet apply /etc/puppet/manifests/nginx.pp --modulepath vendor/modules
 ```
 
 Access `http://localhost:8080/`
@@ -36,8 +36,8 @@ You can see `Hello from Docker Container`
 
 ```console
 $ docker-compose up -d --build
-$ docker exec --privileged pmaster systemctl start puppetserver
-$ docker exec web001 puppet agent --test --server pmaster.local --environment development
+$ docker-compose exec pmaster systemctl start puppetserver
+$ docker-compose exec web001 puppet agent --test --server pmaster.local --environment development
 ```
 
 Access `http://localhost:8080/`
