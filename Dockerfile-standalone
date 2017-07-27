@@ -1,6 +1,6 @@
 FROM asuforce/puppet
 
-RUN apt-get update
+RUN apt-get update -qq
 
 RUN mkdir /etc/puppet
 ADD . /etc/puppet
