@@ -1,4 +1,4 @@
-node 'web001.local' {
+node 'web001' {
   include ::nginx
 
   nginx::resource::server { 'set www root':
@@ -7,11 +7,10 @@ node 'web001.local' {
   }
 
   $dirs = ['/var/www', '/var/www/html']
-  file { $dirs:
-    ensure => directory,
-  }
+  file {
+    $dirs:
+      ensure => directory;
 
-  file { '/var/www/html/index.html':
-    content => '<h1>Hello from Docker Container</h1>',
-  }
+    '/var/www/html/index.html':
+      content => '<h1>Hello from Docker Container</h1>';
 }
