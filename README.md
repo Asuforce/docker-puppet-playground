@@ -37,7 +37,7 @@ You can see `Hello from Docker Container`
 ```console
 $ docker-compose up -d --build
 $ docker-compose exec pmaster systemctl start puppetserver
-$ docker-compose exec web001 puppet agent --test --server pmaster.local --environment development
+$ docker-compose exec web001 puppet agent --test --server pmaster --environment development
 ```
 
 Access `http://localhost:8080/`

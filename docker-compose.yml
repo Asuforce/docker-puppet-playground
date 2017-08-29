@@ -6,15 +6,19 @@ services:
       dockerfile: Dockerfile-agent
     command: /sbin/init
     privileged: true
-    hostname: web001.local
+    hostname: web001
     ports:
       - '8080:80'
     links:
-      - pmaster:pmaster.local
+      - pmaster:pmaster
+
   pmaster:
     build:
       context: .
       dockerfile: Dockerfile-master
     command: /sbin/init
     privileged: true
-    hostname: pmaster.local
+    hostname: pmaster
+    volumes:
+      - ./manifests_pmaster:/etc/puppetlabs/code/environments/development/manifests
+      - ./environment.conf:/etc/puppetlabs/code/environments/development/environment.conf
