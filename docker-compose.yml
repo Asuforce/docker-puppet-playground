@@ -11,6 +11,7 @@ services:
       - '8080:80'
     links:
       - pmaster:pmaster.local
+
   pmaster:
     build:
       context: .
@@ -18,3 +19,6 @@ services:
     command: /sbin/init
     privileged: true
     hostname: pmaster.local
+    volumes:
+      - ./manifests_pmaster:/etc/puppetlabs/code/environments/development/manifests
+      - ./environment.conf:/etc/puppetlabs/code/environments/development/environment.conf
